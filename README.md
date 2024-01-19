@@ -1,6 +1,6 @@
 # interlocked-DUS
 
-<p align="center"><img src="/assets/iDUS.png"></p>
+<p align="center"><img src="/assets/iDUS.png", height=400, width=700></p>
 
 This repository contains an unofficial implementation of SOLAR-10.7B model and the newly proposed interlocked-DUS(iDUS) implementation and experiment details.
 
@@ -43,7 +43,7 @@ First of all, since we should know the architectural details of SOLAR-10.7B befo
 
 #### Base Model
 
-<p align="center"><img src="/assets/base_model.png"></p>
+<p align="center"><img src="/assets/base_model.png", height=300, width=400></p>
 
 SOLAR-10.7B used a base model initialized with a powerful Mistral-7B weight in the Llama2-7B architecture for robustness and versatility.
 For SOLAR-10.7B implementation, it is necessary to initialize this base model, but there is a problem with initializing Llama2-7B architecture with weights of Mistral-7B because of the difference between the architecture of Llama2-7B and Mistral-7B.
@@ -69,7 +69,7 @@ However, these two methods have the following issues:
 - **layer distance**: In the case of a naive up-scaling approach, since the layer distance at the seam reaches a maximum, potentially impeding the model's ability to effectively utilize the pre-trained weights. → *Sacrifing the middle layer to reduce the discrepancy at the seam*
 - **requirements of additional modules**: In the case of MoE, the gating network and expert selection mechanism were required. In addition, it needs additional modification to further train. → *DUS does not require a distinct training framework and additional modules*
 
-<p align="center"><img src="/assets/DUS.png"></p>
+<p align="center"><img src="/assets/DUS.png", height=320, width=720></p>
 
 The newly proposed **Depth Up-Scaling(DUS)** effectively scales up the size of the model while solving the problems of the naive up-scaling method and MoE.
 Let's take a step-by-step look at the **Depth-Up Scaling(DUS)** method, which is illustrated in the figure above.
@@ -127,7 +127,7 @@ As you can see from the name, it does not connect the layers as a whole like DUS
 With this mechanism, iDUS more effectively reduces the layer distance that was important in DUS and has greater strength in processing.
 The figure below illustrates the overall framework of iDUS.
 
-<p align="center"><img src="/assets/iDUS.png"></p>
+<p align="center"><img src="/assets/iDUS.png", height=400, width=700></p>
 
 ### Implementation
 
