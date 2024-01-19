@@ -1,0 +1,9 @@
+slices:
+  - sources:
+    - model: your_initialized_model_path
+      layer_range: [0, 24]
+  - sources:
+    - model: your_initialized_model_path
+      layer_range: [8, 32]
+merge_method: passthrough
+dtype: float16
